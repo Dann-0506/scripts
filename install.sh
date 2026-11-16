@@ -1,22 +1,25 @@
 #!/usr/bin/env bash
-
 set -e
 
-echo "Iniciando la instalación del ecosistema de automatización..."
+echo "Instalando el ecosistema completo de automatización..."
 
+# Crear directorios
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.config/systemd/user"
 
-echo "Copiando script de monitoreo a ~/.local/bin/..."
+# Copiar scripts de binarios
 cp bin/watch_downloads.sh "$HOME/.local/bin/watch_downloads.sh"
-chmod +x "$HOME/.local/bin/watch_downloads.sh"
+cp bin/clean_desktop.sh "$HOME/.local/bin/clean_desktop.sh"
+chmod +x "$HOME/.local/bin/"*.sh
 
-echo "Configurando el servicio de systemd..."
-cp systemd/watch-downloads.service "$HOME/.config/systemd/user/watch-downloads.service"
+# Copiar servicios de systemd
+cp systemd/watch-downloads.service "$HOME/.config/systemd/user/"
+cp systemd/clean-desktop.service "$HOME/.config/systemd/user/"
+cp systemd/clean-desktop.timer "$HOME/.config/systemd/user/"
 
-echo "Activando el servicio en systemd..."
+# Recargar y habilitar servicios
 systemctl --user daemon-reload
-systemctl --user enable watch-downloads.service
-systemctl --user restart watch-downloads.service
+systemctl --user enable --now watch-downloads.service
+systemctl --user enable --now clean-desktop.timer
 
-echo "Instalacion completada"
+echo "Instalación y activación completadas"
