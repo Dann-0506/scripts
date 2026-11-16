@@ -1,0 +1,11 @@
+[Unit]
+Description=Daemon de monitoreo de Descargas a Escritorio
+After=graphical-session.target
+
+[Service]
+ExecStart=%h/.local/bin/watch_downloads.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target

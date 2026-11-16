@@ -1,0 +1,32 @@
+# Linux Automation Scripts
+
+Un conjunto de herramientas y scripts ligeros diseñados para automatizar flujos de trabajo en Ubuntu, mantener limpio el sistema de archivos y optimizar la gestión diaria de documentos.
+
+---
+
+## Estructura del Repositorio
+
+```bash
+linux-automation-scripts/
+├── README.md               # Documentación del proyecto
+├── .gitignore              # Archivos ignorados por Git
+├── install.sh              # Script de instalación automatizada
+├── bin/
+│   └── watch_downloads.sh  # Demonio de monitoreo de Descargas a Escritorio
+└── systemd/
+    └── watch-downloads.service # Configuración del servicio de usuario systemd
+```
+
+---
+
+## Requisitos previos
+Antes de instalar los scripts es necesario tener las siguientes herramientas instaladas para el monitoreo de eventos en tiempo real.
+
+```bash
+sudo apt update
+sudo apt install inotify-tools
+```
+
+---
+
+## Instalacion
