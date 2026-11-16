@@ -6,7 +6,7 @@ IMAGES_DIR="$HOME/Imágenes"
 
 for cmd in inotifywait fuser; do
     if ! command -v "$cmd" &> /dev/null; then
-        echo "Error: '$cmd' no está instalado. Instálalo con: sudo apt install inotify-tools psmisc" >&2
+        echo "Error: '$cmd' no está instalado." >&2
         exit 1
     fi
 done
