@@ -24,6 +24,7 @@ echo "Instalando scripts de automatización..."
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.config/systemd/user"
 mkdir -p "$HOME/.local/share/nautilus/scripts"
+mkdir -p "$HOME/.local/share/pandoc/templates"
 echo ""
 
 # Reenvio de descargas a escritorio
@@ -54,6 +55,7 @@ echo ""
 
 # md2pdf
 echo "Script de nautilus y terminal para convertir markdown a pdf con TeXLive"
+cp templates/plantilla_itver.tex "$HOME/.local/share/pandoc/templates/"
 cp bin/md2pdf.sh "$HOME/.local/bin/md2pdf"
 chmod +x "$HOME/.local/bin/md2pdf"
 ln -sf "$HOME/.local/bin/md2pdf" "$HOME/.local/share/nautilus/scripts/Convertir a PDF"

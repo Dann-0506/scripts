@@ -1,0 +1,84 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{margin=2.5cm, headheight=28pt}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small\textbf{Daniel Landero Arias} \\ \textit{$materia$}}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,keepaspectratio}
+
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+\begin{document}
+
+% --- PORTADA ---
+\begin{titlepage}
+	\centering
+
+	\noindent
+	\begin{minipage}[l]{0.5\textwidth}
+		\raggedright
+		\includegraphics[height=3.5cm]{$recursos$/logo-tecnm.png}
+	\end{minipage}%
+	\begin{minipage}[r]{0.5\textwidth}
+		\raggedleft
+		\includegraphics[height=3.5cm]{$recursos$/logo-itver.png}
+	\end{minipage}
+
+	\vspace{0.5cm}
+	{\bfseries\LARGE Tecnol\'ogico Nacional de M\'exico \par}
+	{\bfseries\LARGE Instituto Tecnol\'ogico de Veracruz \par}
+	\vspace{1cm}
+	{\scshape\LARGE Ingenier\'ia en Sistemas Computacionales \par}
+	
+	\vfill
+	
+	{\scshape\huge $title$\par}
+	$if(subtitle)$
+	\vspace{0.3cm}
+	{\itshape\LARGE $subtitle$\par}
+	$endif$
+	
+	\vfill
+	
+	{\Large Alumno:\par}
+	{\Large Daniel Landero Arias - 23020770\par}
+	\vspace{0.5cm}
+	{\Large Maestro:\par}
+	{\Large $profesor$\par}
+	\vspace{0.3cm}
+	{\Large Materia:\par}
+	{\Large $materia$\par}
+	
+	\vfill
+	
+	{\Large $if(date)$$date$$else$\today$endif$ \par}
+\end{titlepage}
+
+% --- TABLA DE CONTENIDO OPCIONAL ---
+$if(toc)$
+\tableofcontents
+\newpage
+$endif$
+
+% --- CONTENIDO DEL DOCUMENTO ---
+$body$
+
+\end{document}
