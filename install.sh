@@ -37,6 +37,7 @@ echo "Binario copiado"
 cp systemd/watch-downloads.service "$HOME/.config/systemd/user/"
 systemctl --user daemon-reload
 systemctl --user enable --now watch-downloads.service
+systemctl --user restart watch-downloads.service
 echo "Servicio habilitado"
 echo ""
 
@@ -50,6 +51,7 @@ cp systemd/clean-desktop.service "$HOME/.config/systemd/user/"
 cp systemd/clean-desktop.timer "$HOME/.config/systemd/user/"
 systemctl --user daemon-reload
 systemctl --user enable --now clean-desktop.timer
+systemctl --user restart clean-desktop.service
 echo "Servicio habilitado"
 echo ""
 

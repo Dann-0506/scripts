@@ -36,15 +36,18 @@ inotifywait -m -e close_write -e moved_to --format '%f' "$SOURCE_DIR" | while re
     ext="${filename##*.}"
     ext_lower=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
     filename_lower=$(echo "$filename" | tr '[:upper:]' '[:lower:]')
+    clean_filename="$filename"
 
     case "$ext_lower" in
         jpg|jpeg|png|gif|webp|svg|bmp|tiff|ico|avif)
             case "$filename_lower" in
                 wp_*)
                     dest_dir="$IMAGES_DIR/Wallpapers"
+                    [ "${#filename}" -gt $((3 + ${#ext} + 1)) ] && clean_filename="${filename:3}"
                     ;;
-                itv_*)
+                tecnm_*)
                     dest_dir="$IMAGES_DIR/TecNM"
+                    [ "${#filename}" -gt $((6 + ${#ext} + 1)) ] && clean_filename="${filename:6}"
                     ;;
                 *)
                     dest_dir="$IMAGES_DIR"
@@ -58,10 +61,10 @@ inotifywait -m -e close_write -e moved_to --format '%f' "$SOURCE_DIR" | while re
 
     mkdir -p "$dest_dir"
 
-    target="$dest_dir/$filename"
+    target="$dest_dir/$clean_filename"
 
     if [ -e "$target" ]; then
-        name="${filename%.*}"
+        name="${clean_filename%.*}"
         timestamp=$(date +%s)
         target="$dest_dir/${name}_${timestamp}.${ext}"
     fi
